@@ -1,0 +1,650 @@
+[
+  {
+    "world_id": "W0",
+    "population": 30,
+    "distance": 0.0,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing supplements; small circles of trust prevent total desperation. First weeks are tense rationing, not violence.",
+    "full_response": "Stored rice buys time for negotiation; fishing supplements; small circles of trust prevent total desperation. First weeks are tense rationing, not violence.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W1",
+    "population": 33,
+    "distance": 0.0125,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; small enough group that reputation matters and default is cooperation until scarcity forces hands.",
+    "full_response": "Stored rice buys time for negotiation; small enough group that reputation matters and default is cooperation until scarcity forces hands.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W2",
+    "population": 36,
+    "distance": 0.025,
+    "answer": 0,
+    "reasoning": "People ration methodically when the math is visible and transparent. With 36 people, the stored rice stretches predictably if divided fairly, fishing supplements gaps, and everyone can verify the count and shares. Trust holds through the known scarci",
+    "full_response": "People ration methodically when the math is visible and transparent. With 36 people, the stored rice stretches predictably if divided fairly, fishing supplements gaps, and everyone can verify the count and shares. Trust holds through the known scarcity.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W3",
+    "population": 39,
+    "distance": 0.0375,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; 39 is small enough that reputation matters more than anonymity, and fishing supplements the deficit. Rationing emerges before violence does.",
+    "full_response": "Stored rice buys time for negotiation; 39 is small enough that reputation matters more than anonymity, and fishing supplements the deficit. Rationing emerges before violence does.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W4",
+    "population": 42,
+    "distance": 0.05,
+    "answer": 0,
+    "reasoning": "Stored rice buys 8 weeks of stability; fishing supplements it; 42 people still fit in one conversation where someone proposes rationing. Trust fractures slowly.",
+    "full_response": "Stored rice buys 8 weeks of stability; fishing supplements it; 42 people still fit in one conversation where someone proposes rationing. Trust fractures slowly.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W5",
+    "population": 45,
+    "distance": 0.0625,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing + rationing keeps everyone fed enough. Small enough group that reputation matters, large enough that some hoard without immediate detection. The fracture point comes around week 5-6 when stored rice depl",
+    "full_response": "Stored rice buys time for negotiation; fishing + rationing keeps everyone fed enough. Small enough group that reputation matters, large enough that some hoard without immediate detection. The fracture point comes around week 5-6 when stored rice depletes noticeably and fishing proves inconsistent\u2014but by then they've established sharing norms through necessity. Violence erupts only when someone believes they'll starve; that threshold hasn't quite hit in 8 weeks.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W6",
+    "population": 48,
+    "distance": 0.075,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing provides buffer; 48 is small enough for reputation to matter, large enough that some will test boundaries before violence becomes necessary.",
+    "full_response": "Stored rice buys time for negotiation; fishing provides buffer; 48 is small enough for reputation to matter, large enough that some will test boundaries before violence becomes necessary.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W7",
+    "population": 51,
+    "distance": 0.0875,
+    "answer": 1,
+    "reasoning": "Stored rice feeds 30 for months, fishing supplements; 51 people means rationing works if enforced, but someone always takes extra when hungry enough, and that first theft or hoarding triggers the second, then the third\u2014by week 6 or 7, one group suspe",
+    "full_response": "Stored rice feeds 30 for months, fishing supplements; 51 people means rationing works if enforced, but someone always takes extra when hungry enough, and that first theft or hoarding triggers the second, then the third\u2014by week 6 or 7, one group suspects another, accusations fly, tools become weapons.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W8",
+    "population": 54,
+    "distance": 0.1,
+    "answer": 1,
+    "reasoning": "Stored rice buys time for negotiation; fishing sustains partial needs; 54 is large enough for resource-based factions but small enough that face-to-face accountability matters. Initial period sees rationing agreements, then slow fraying as stocks vis",
+    "full_response": "Stored rice buys time for negotiation; fishing sustains partial needs; 54 is large enough for resource-based factions but small enough that face-to-face accountability matters. Initial period sees rationing agreements, then slow fraying as stocks visibly deplete and some circles hoard more than others. By week 6-7, acute scarcity triggers the first serious confrontation\u2014not organized violence, but physical shoving over a distribution decision. One person gets hurt, trust shatters in that group.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W9",
+    "population": 57,
+    "distance": 0.1125,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing still works; no pre-existing hierarchy means power won't crystallize fast enough to force violence over mere scarcity in 8 weeks.",
+    "full_response": "Stored rice buys time for negotiation; fishing still works; no pre-existing hierarchy means power won't crystallize fast enough to force violence over mere scarcity in 8 weeks.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W10",
+    "population": 60,
+    "distance": 0.125,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing + rationing prevents immediate desperation. First fights are over fairness rules, not survival itself.",
+    "full_response": "Stored rice buys time for negotiation; fishing + rationing prevents immediate desperation. First fights are over fairness rules, not survival itself.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W11",
+    "population": 63,
+    "distance": 0.1375,
+    "answer": 1,
+    "reasoning": "Stored rice runs out in weeks, fishing alone can't feed 63, people know each other too well to accept starvation quietly, trust fractures into circles fighting over scraps.",
+    "full_response": "Stored rice runs out in weeks, fishing alone can't feed 63, people know each other too well to accept starvation quietly, trust fractures into circles fighting over scraps.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W12",
+    "population": 66,
+    "distance": 0.15,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for rationing systems to form; fishing supplements enough that desperation doesn't hit immediately; 66 is small enough for reputation-tracking but large enough that some can hide selfishness without everyone knowing. Conflict em",
+    "full_response": "Stored rice buys time for rationing systems to form; fishing supplements enough that desperation doesn't hit immediately; 66 is small enough for reputation-tracking but large enough that some can hide selfishness without everyone knowing. Conflict emerges slowly around week 5-6 when rice calculations show scarcity, not in the first 8 weeks.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W13",
+    "population": 69,
+    "distance": 0.1625,
+    "answer": 1,
+    "reasoning": "Small enough to negotiate, large enough to fracture fast when hunger hits.",
+    "full_response": "Small enough to negotiate, large enough to fracture fast when hunger hits.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W14",
+    "population": 72,
+    "distance": 0.175,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing sustains partial needs; 72 is large enough that informal coalitions form before desperation forces violence.",
+    "full_response": "Stored rice buys time for negotiation; fishing sustains partial needs; 72 is large enough that informal coalitions form before desperation forces violence.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W15",
+    "population": 75,
+    "distance": 0.1875,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing provides baseline survival. 75 is large enough that trust circles fragment under scarcity but small enough that repeated face-to-face encounters and kinship networks create powerful restraints against vi",
+    "full_response": "Stored rice buys time for negotiation; fishing provides baseline survival. 75 is large enough that trust circles fragment under scarcity but small enough that repeated face-to-face encounters and kinship networks create powerful restraints against violence. Rationing systems emerge from existing work groups. Conflict simmers but doesn't ignite into violence\u2014people know they'll see each other tomorrow.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W16",
+    "population": 78,
+    "distance": 0.2,
+    "answer": 0,
+    "reasoning": "Stored rice feeds 30 for months; fishing supplements; 78 people means severe rationing but manageable scarcity, not starvation. Trust circles already exist. Competition for dwindling stocks creates tension, but violence requires desperation to overri",
+    "full_response": "Stored rice feeds 30 for months; fishing supplements; 78 people means severe rationing but manageable scarcity, not starvation. Trust circles already exist. Competition for dwindling stocks creates tension, but violence requires desperation to override the cost of harming people you'll need to survive with. Eight weeks is too soon.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W17",
+    "population": 81,
+    "distance": 0.2125,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for rationing systems to form before desperation peaks; fishing supplements gaps; 81 is large enough that informal trust networks can enforce norms without requiring everyone to agree, but small enough that defection is visible ",
+    "full_response": "Stored rice buys time for rationing systems to form before desperation peaks; fishing supplements gaps; 81 is large enough that informal trust networks can enforce norms without requiring everyone to agree, but small enough that defection is visible and costly. Conflict risks rise sharply after the stored rice depletes, but eight weeks is likely still within the window where reciprocal obligation and reputation concern outweigh individual desperation.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W18",
+    "population": 84,
+    "distance": 0.225,
+    "answer": 1,
+    "reasoning": "Stored rice buys time; 84 is small enough for face-to-face accountability but large enough that some won't know everyone. Initial cooperation likely, but as supplies visibly shrink and fishing proves unreliable, the informal trust circles tighten. By",
+    "full_response": "Stored rice buys time; 84 is small enough for face-to-face accountability but large enough that some won't know everyone. Initial cooperation likely, but as supplies visibly shrink and fishing proves unreliable, the informal trust circles tighten. By week 6-7, rations feel inadequate, accusations of hoarding or unfair distribution emerge, someone takes extra, retaliation follows.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W19",
+    "population": 87,
+    "distance": 0.2375,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing supplements; desperation arrives gradually, not suddenly.",
+    "full_response": "Stored rice buys time for negotiation; fishing supplements; desperation arrives gradually, not suddenly.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W20",
+    "population": 90,
+    "distance": 0.25,
+    "answer": 1,
+    "reasoning": "Stored rice buys time for negotiation; fishing supplements. Small circles of trust fracture into sides over rationing before violence erupts.",
+    "full_response": "Stored rice buys time for negotiation; fishing supplements. Small circles of trust fracture into sides over rationing before violence erupts.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W21",
+    "population": 93,
+    "distance": 0.2625,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; 93 is small enough that reputation matters, large enough that some can hide unfairness. Fishing supplements. Pressure builds gradually, not explosively.",
+    "full_response": "Stored rice buys time for negotiation; 93 is small enough that reputation matters, large enough that some can hide unfairness. Fishing supplements. Pressure builds gradually, not explosively.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W22",
+    "population": 96,
+    "distance": 0.275,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing maintains baseline survival. Trust circles already exist. No immediate scarcity trigger.",
+    "full_response": "Stored rice buys time for negotiation; fishing maintains baseline survival. Trust circles already exist. No immediate scarcity trigger.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W23",
+    "population": 99,
+    "distance": 0.2875,
+    "answer": 1,
+    "reasoning": "Stored rice buys time; fishing sustains some; but 99 people rationing scarce food, organized only in small trust circles with no authority to enforce shares, will fracture into competing groups within weeks.",
+    "full_response": "Stored rice buys time; fishing sustains some; but 99 people rationing scarce food, organized only in small trust circles with no authority to enforce shares, will fracture into competing groups within weeks.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W24",
+    "population": 102,
+    "distance": 0.3,
+    "answer": 0,
+    "reasoning": "Storage rice buys time for negotiation; 102 is small enough that reputation matters and large enough that informal rationing can hold before desperation kicks in. First weeks are tense coordination, not violence.",
+    "full_response": "Storage rice buys time for negotiation; 102 is small enough that reputation matters and large enough that informal rationing can hold before desperation kicks in. First weeks are tense coordination, not violence.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W25",
+    "population": 105,
+    "distance": 0.3125,
+    "answer": 1,
+    "reasoning": "Stored rice feeds 30 for months; 105 people means rationing that works for maybe 6-8 weeks if strict, but circles of trust hoard for their own, outsiders go hungry, resentment builds, someone takes by force.",
+    "full_response": "Stored rice feeds 30 for months; 105 people means rationing that works for maybe 6-8 weeks if strict, but circles of trust hoard for their own, outsiders go hungry, resentment builds, someone takes by force.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W26",
+    "population": 108,
+    "distance": 0.325,
+    "answer": 1,
+    "reasoning": "Stored rice feeds 30 for months, fishing supplements, 108 people must ration drastically\u2014trust fractures when children go hungry while some hoard, violence erupts over access to storage.",
+    "full_response": "Stored rice feeds 30 for months, fishing supplements, 108 people must ration drastically\u2014trust fractures when children go hungry while some hoard, violence erupts over access to storage.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W27",
+    "population": 111,
+    "distance": 0.3375,
+    "answer": 0,
+    "reasoning": "Stored rice sustains 30 people for months; fishing supplements the rest. Trust circles protect against chaos during transition. Cooperation outlasts eight weeks.",
+    "full_response": "Stored rice sustains 30 people for months; fishing supplements the rest. Trust circles protect against chaos during transition. Cooperation outlasts eight weeks.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W28",
+    "population": 114,
+    "distance": 0.35,
+    "answer": 1,
+    "reasoning": "Stored rice feeds 30 for months; 114 people face immediate scarcity; fishing alone won't bridge the gap; small trust circles fracture when their kids go hungry; someone tries to hoard or control the hut; another group moves to take it; tools become w",
+    "full_response": "Stored rice feeds 30 for months; 114 people face immediate scarcity; fishing alone won't bridge the gap; small trust circles fracture when their kids go hungry; someone tries to hoard or control the hut; another group moves to take it; tools become weapons.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W29",
+    "population": 117,
+    "distance": 0.3625,
+    "answer": 0,
+    "reasoning": "Stored rice buys 8-12 weeks of peace while fishing supplements and people organize rationing by existing trust circles; scarcity without immediate starvation rarely triggers violence this soon.",
+    "full_response": "Stored rice buys 8-12 weeks of peace while fishing supplements and people organize rationing by existing trust circles; scarcity without immediate starvation rarely triggers violence this soon.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W30",
+    "population": 120,
+    "distance": 0.375,
+    "answer": 1,
+    "reasoning": "Stored rice buys time for cooperation; fishing keeps most fed; small trust circles hold first pressure; conflict erupts when stores deplete and desperation peaks around week 6-7.",
+    "full_response": "Stored rice buys time for cooperation; fishing keeps most fed; small trust circles hold first pressure; conflict erupts when stores deplete and desperation peaks around week 6-7.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W31",
+    "population": 123,
+    "distance": 0.3875,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing sustains a core group; scarcity forces painful choices but not yet violence.",
+    "full_response": "Stored rice buys time for negotiation; fishing sustains a core group; scarcity forces painful choices but not yet violence.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W32",
+    "population": 126,
+    "distance": 0.4,
+    "answer": 1,
+    "reasoning": "Stored rice feeds 30 for months; 126 people means immediate rationing crisis, trust fractures fast, first theft or hoarding accusation ignites violence.",
+    "full_response": "Stored rice feeds 30 for months; 126 people means immediate rationing crisis, trust fractures fast, first theft or hoarding accusation ignites violence.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W33",
+    "population": 129,
+    "distance": 0.4125,
+    "answer": 1,
+    "reasoning": "Stored rice buys time for negotiation; 129 is small enough that faces matter, large enough that rationing breaks trust.",
+    "full_response": "Stored rice buys time for negotiation; 129 is small enough that faces matter, large enough that rationing breaks trust.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W34",
+    "population": 132,
+    "distance": 0.425,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing + rationing prevents immediate desperation. Trust circles negotiate before violence.",
+    "full_response": "Stored rice buys time for negotiation; fishing + rationing prevents immediate desperation. Trust circles negotiate before violence.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W35",
+    "population": 135,
+    "distance": 0.4375,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing supplements survival; 135 is large enough that informal groups can self-organize rationing without total visibility, small enough that repeated face-to-face contact creates accountability. Desperation ar",
+    "full_response": "Stored rice buys time for negotiation; fishing supplements survival; 135 is large enough that informal groups can self-organize rationing without total visibility, small enough that repeated face-to-face contact creates accountability. Desperation arrives gradually, not suddenly.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W36",
+    "population": 138,
+    "distance": 0.45,
+    "answer": 1,
+    "reasoning": "Stored rice buys time for negotiation; fishing prevents immediate starvation; 138 is small enough for reputation to matter, large enough that anonymous taking becomes tempting once hunger sharpens.",
+    "full_response": "Stored rice buys time for negotiation; fishing prevents immediate starvation; 138 is small enough for reputation to matter, large enough that anonymous taking becomes tempting once hunger sharpens.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W37",
+    "population": 141,
+    "distance": 0.4625,
+    "answer": 1,
+    "reasoning": "Stored rice buys time for negotiation; fishing provides buffer; 141 is small enough for face-to-face accountability but large enough that some will hoard or demand more than their share\u2014the math gets tight around week 5-6 when rice depletes faster th",
+    "full_response": "Stored rice buys time for negotiation; fishing provides buffer; 141 is small enough for face-to-face accountability but large enough that some will hoard or demand more than their share\u2014the math gets tight around week 5-6 when rice depletes faster than expected and someone's family goes hungry.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W38",
+    "population": 144,
+    "distance": 0.475,
+    "answer": 0,
+    "reasoning": "Small groups already formed, stored rice buys time for negotiation, fishing supplements survival, no immediate desperation yet.",
+    "full_response": "Small groups already formed, stored rice buys time for negotiation, fishing supplements survival, no immediate desperation yet.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W39",
+    "population": 147,
+    "distance": 0.4875,
+    "answer": 0,
+    "reasoning": "Stored rice sustains ~30 for months; fishing supplements the rest. Trust circles already formed. Rationing possible without scarcity-induced violence.",
+    "full_response": "Stored rice sustains ~30 for months; fishing supplements the rest. Trust circles already formed. Rationing possible without scarcity-induced violence.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W40",
+    "population": 150,
+    "distance": 0.5,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing + rationing prevents immediate desperation; 150 is large enough that most don't know each other well, so trust fragments slowly rather than explosively.",
+    "full_response": "Stored rice buys time for negotiation; fishing + rationing prevents immediate desperation; 150 is large enough that most don't know each other well, so trust fragments slowly rather than explosively.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W41",
+    "population": 153,
+    "distance": 0.5125,
+    "answer": 1,
+    "reasoning": "Stored rice runs out faster than expected under stress. Fishing can't fill the gap. Desperation spreads unevenly through 153 people \u2014 some hoard, some go hungry. Trust between circles breaks first. Fighting over scraps starts by week 5 or 6.",
+    "full_response": "Stored rice runs out faster than expected under stress. Fishing can't fill the gap. Desperation spreads unevenly through 153 people \u2014 some hoard, some go hungry. Trust between circles breaks first. Fighting over scraps starts by week 5 or 6.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W42",
+    "population": 156,
+    "distance": 0.525,
+    "answer": 1,
+    "reasoning": "Stored rice feeds 30 for months; 156 people need rationing immediately. Trust circles fragment when hunger hits, someone hoards, resentment compounds. By week 4-5, a confrontation over fairness turns physical.",
+    "full_response": "Stored rice feeds 30 for months; 156 people need rationing immediately. Trust circles fragment when hunger hits, someone hoards, resentment compounds. By week 4-5, a confrontation over fairness turns physical.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W43",
+    "population": 159,
+    "distance": 0.5375,
+    "answer": 1,
+    "reasoning": "Stored rice buys time for negotiation; 159 is small enough for face-to-face accountability but large enough that some will hoard or free-ride, triggering violence when fish runs thin.",
+    "full_response": "Stored rice buys time for negotiation; 159 is small enough for face-to-face accountability but large enough that some will hoard or free-ride, triggering violence when fish runs thin.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W44",
+    "population": 162,
+    "distance": 0.55,
+    "answer": 1,
+    "reasoning": "Stored rice feeds 30 for months; 162 people means severe rationing immediately, trust erodes fast, competition for fishing spots intensifies, first theft or hoarding triggers retaliation.",
+    "full_response": "Stored rice feeds 30 for months; 162 people means severe rationing immediately, trust erodes fast, competition for fishing spots intensifies, first theft or hoarding triggers retaliation.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W45",
+    "population": 165,
+    "distance": 0.5625,
+    "answer": 1,
+    "reasoning": "Storage rice feeds 30 for months; 165 people need rationing immediately. Fishing helps but won't cover the gap. Trust circles fracture when hunger hits and shares get questioned. Someone hoards, someone calls it out, someone throws a punch.",
+    "full_response": "Storage rice feeds 30 for months; 165 people need rationing immediately. Fishing helps but won't cover the gap. Trust circles fracture when hunger hits and shares get questioned. Someone hoards, someone calls it out, someone throws a punch.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W46",
+    "population": 168,
+    "distance": 0.575,
+    "answer": 1,
+    "reasoning": "Stored rice sustains ~30 for months; 168 people face immediate scarcity with no authority to enforce rationing\u2014competition for scarce food triggers violence within weeks as trust circles collapse.",
+    "full_response": "Stored rice sustains ~30 for months; 168 people face immediate scarcity with no authority to enforce rationing\u2014competition for scarce food triggers violence within weeks as trust circles collapse.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W47",
+    "population": 171,
+    "distance": 0.5875,
+    "answer": 1,
+    "reasoning": "Stored rice buys time for negotiation; 171 people know each other well enough to avoid immediate violence, but desperation compounds weekly.",
+    "full_response": "Stored rice buys time for negotiation; 171 people know each other well enough to avoid immediate violence, but desperation compounds weekly.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W48",
+    "population": 174,
+    "distance": 0.6,
+    "answer": 1,
+    "reasoning": "Small circles of trust fragment under scarcity; stored rice runs out in weeks; fishing alone can't sustain 174; rationing breaks down when someone's family goes hungry.",
+    "full_response": "Small circles of trust fragment under scarcity; stored rice runs out in weeks; fishing alone can't sustain 174; rationing breaks down when someone's family goes hungry.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W49",
+    "population": 177,
+    "distance": 0.6125,
+    "answer": 1,
+    "reasoning": "Stored rice feeds 30 for months; 177 people need rationing immediately. Fishing supplements but won't prevent hunger. Trust circles fragment when bellies empty. Someone takes extra. Someone notices. First violence within weeks.",
+    "full_response": "Stored rice feeds 30 for months; 177 people need rationing immediately. Fishing supplements but won't prevent hunger. Trust circles fragment when bellies empty. Someone takes extra. Someone notices. First violence within weeks.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W50",
+    "population": 180,
+    "distance": 0.625,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing supplements; groups already trust each other from months of cooperation. Rationing takes hold before desperation sets in.",
+    "full_response": "Stored rice buys time for negotiation; fishing supplements; groups already trust each other from months of cooperation. Rationing takes hold before desperation sets in.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W51",
+    "population": 183,
+    "distance": 0.6375,
+    "answer": 1,
+    "reasoning": "Stored rice buys time; fishing sustains some; but 183 people competing for insufficient food, no authority to enforce distribution, and weeks of visible scarcity creates the conditions where someone refuses to accept hunger while others eat.",
+    "full_response": "Stored rice buys time; fishing sustains some; but 183 people competing for insufficient food, no authority to enforce distribution, and weeks of visible scarcity creates the conditions where someone refuses to accept hunger while others eat.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W52",
+    "population": 186,
+    "distance": 0.65,
+    "answer": 0,
+    "reasoning": "Stored rice runs for months, fishing supplements\u2014immediate survival secured. With 186 people organized in trusted circles already formed, rationing follows existing group structures without outside competition. Scarcity creates tension, not desperati",
+    "full_response": "Stored rice runs for months, fishing supplements\u2014immediate survival secured. With 186 people organized in trusted circles already formed, rationing follows existing group structures without outside competition. Scarcity creates tension, not desperation. Trust fractures gradually, not suddenly.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W53",
+    "population": 189,
+    "distance": 0.6625,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for cooperation; fishing + rationing sustains most; no resource scarcity trigger yet, but desperation comes in months 2-3.",
+    "full_response": "Stored rice buys time for cooperation; fishing + rationing sustains most; no resource scarcity trigger yet, but desperation comes in months 2-3.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W54",
+    "population": 192,
+    "distance": 0.675,
+    "answer": 1,
+    "reasoning": "Stored rice runs out in weeks, fishing alone can't feed 192, groups already formed by trust circles means some eat while others don't, desperation compounds fast.",
+    "full_response": "Stored rice runs out in weeks, fishing alone can't feed 192, groups already formed by trust circles means some eat while others don't, desperation compounds fast.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W55",
+    "population": 195,
+    "distance": 0.6875,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing sustains core groups; 195 is large enough that resource rationing can be organized through existing trust circles rather than forcing zero-sum desperation.",
+    "full_response": "Stored rice buys time for negotiation; fishing sustains core groups; 195 is large enough that resource rationing can be organized through existing trust circles rather than forcing zero-sum desperation.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W56",
+    "population": 198,
+    "distance": 0.7,
+    "answer": 1,
+    "reasoning": "Stored rice buys time for negotiation; 198 is small enough that reputation matters, large enough that anonymous taking becomes possible once hunger sharpens.",
+    "full_response": "Stored rice buys time for negotiation; 198 is small enough that reputation matters, large enough that anonymous taking becomes possible once hunger sharpens.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W57",
+    "population": 201,
+    "distance": 0.7125,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing supplements survival; 201 is large enough that informal groups can self-organize rationing without total breakdown, but small enough that resource scarcity and face-to-face proximity create real friction",
+    "full_response": "Stored rice buys time for negotiation; fishing supplements survival; 201 is large enough that informal groups can self-organize rationing without total breakdown, but small enough that resource scarcity and face-to-face proximity create real friction. Most likely outcome: tension and arguments, but the mixed incentives (some people benefit from cooperation, survival needs are partly met) prevent full violence in 8 weeks.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W58",
+    "population": 204,
+    "distance": 0.725,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing prevents immediate starvation; 204 is small enough that reputation matters, large enough that not everyone knows everyone\u2014trust fragments but organized groups hold.",
+    "full_response": "Stored rice buys time for negotiation; fishing prevents immediate starvation; 204 is small enough that reputation matters, large enough that not everyone knows everyone\u2014trust fragments but organized groups hold.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W59",
+    "population": 207,
+    "distance": 0.7375,
+    "answer": 1,
+    "reasoning": "Stored rice feeds 30 for months; 207 people means immediate rationing crisis, trust dissolves fast when kids go hungry, first theft or hoarding triggers retaliation.",
+    "full_response": "Stored rice feeds 30 for months; 207 people means immediate rationing crisis, trust dissolves fast when kids go hungry, first theft or hoarding triggers retaliation.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W60",
+    "population": 210,
+    "distance": 0.75,
+    "answer": 1,
+    "reasoning": "Stored rice buys time for cooperation; fishing + rationing keeps most fed; but 210 is too large to manage without formal rules, trust fractures over fairness, someone goes hungry and takes, others follow.",
+    "full_response": "Stored rice buys time for cooperation; fishing + rationing keeps most fed; but 210 is too large to manage without formal rules, trust fractures over fairness, someone goes hungry and takes, others follow.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W61",
+    "population": 213,
+    "distance": 0.7625,
+    "answer": 1,
+    "reasoning": "Trust networks fragment when scarcity hits suddenly; 213 is large enough that strangers exist and resentment spreads, small enough that food rationing becomes personal and visible.",
+    "full_response": "Trust networks fragment when scarcity hits suddenly; 213 is large enough that strangers exist and resentment spreads, small enough that food rationing becomes personal and visible.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W62",
+    "population": 216,
+    "distance": 0.775,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing + rationing prevents immediate desperation. Trust circles still intact. Groups compete, not kill.",
+    "full_response": "Stored rice buys time for negotiation; fishing + rationing prevents immediate desperation. Trust circles still intact. Groups compete, not kill.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W63",
+    "population": 219,
+    "distance": 0.7875,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing stabilizes a core group; 219 is large enough that informal rationing holds before desperation hits.",
+    "full_response": "Stored rice buys time for negotiation; fishing stabilizes a core group; 219 is large enough that informal rationing holds before desperation hits.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W64",
+    "population": 222,
+    "distance": 0.8,
+    "answer": 0,
+    "reasoning": "Stored rice feeds 30 for months, fishing supplements, 222 people organize into trusted circles already formed\u2014immediate crisis forces rationing conversations within existing groups before desperation sets in.",
+    "full_response": "Stored rice feeds 30 for months, fishing supplements, 222 people organize into trusted circles already formed\u2014immediate crisis forces rationing conversations within existing groups before desperation sets in.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W65",
+    "population": 225,
+    "distance": 0.8125,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing + rationing prevents immediate scarcity panic. 225 is large enough that enforcement of fair shares becomes impossible, small enough that everyone knows who's taking extra. First conflicts arise over dist",
+    "full_response": "Stored rice buys time for negotiation; fishing + rationing prevents immediate scarcity panic. 225 is large enough that enforcement of fair shares becomes impossible, small enough that everyone knows who's taking extra. First conflicts arise over distribution rules, not starvation\u2014but these stay below violence threshold within 8 weeks.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W66",
+    "population": 228,
+    "distance": 0.825,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for cooperation; fishing sustains core groups; desperation arrives gradually, not suddenly.",
+    "full_response": "Stored rice buys time for cooperation; fishing sustains core groups; desperation arrives gradually, not suddenly.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W67",
+    "population": 231,
+    "distance": 0.8375,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for cooperation; fishing sustains core groups; 231 is large enough that some circles trust each other but small enough that resource panic spreads fast through gossip. Trust fractures before violence.",
+    "full_response": "Stored rice buys time for cooperation; fishing sustains core groups; 231 is large enough that some circles trust each other but small enough that resource panic spreads fast through gossip. Trust fractures before violence.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W68",
+    "population": 234,
+    "distance": 0.85,
+    "answer": 0,
+    "reasoning": "Small groups already formed, trust established within circles, stored rice buys time for rationing agreements before desperation sets in.",
+    "full_response": "Small groups already formed, trust established within circles, stored rice buys time for rationing agreements before desperation sets in.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W69",
+    "population": 237,
+    "distance": 0.8625,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing sustains a core group; 237 is small enough for face-to-face accountability but large enough that some will go hungry, creating pressure but not yet desperation.",
+    "full_response": "Stored rice buys time for negotiation; fishing sustains a core group; 237 is small enough for face-to-face accountability but large enough that some will go hungry, creating pressure but not yet desperation.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W70",
+    "population": 240,
+    "distance": 0.875,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing provides baseline survival; 240 is large enough for specialization and role-clarity but small enough that reputation matters\u2014mutual dependence and visibility of free-riders creates incentive to cooperate",
+    "full_response": "Stored rice buys time for negotiation; fishing provides baseline survival; 240 is large enough for specialization and role-clarity but small enough that reputation matters\u2014mutual dependence and visibility of free-riders creates incentive to cooperate rather than fight over scarcity that kills everyone equally.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W71",
+    "population": 243,
+    "distance": 0.8875,
+    "answer": 0,
+    "reasoning": "Stored rice buys 8 weeks of negotiation; fishing + rationing keeps most alive; circles of trust splinter over fairness, not starvation.",
+    "full_response": "Stored rice buys 8 weeks of negotiation; fishing + rationing keeps most alive; circles of trust splinter over fairness, not starvation.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W72",
+    "population": 246,
+    "distance": 0.9,
+    "answer": 1,
+    "reasoning": "Stored rice buys 8 weeks of grace; fishing sustains a core group; the rest face slow starvation. Someone tries to hoard. Someone else notices. Violence erupts over the second portion.",
+    "full_response": "Stored rice buys 8 weeks of grace; fishing sustains a core group; the rest face slow starvation. Someone tries to hoard. Someone else notices. Violence erupts over the second portion.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W73",
+    "population": 249,
+    "distance": 0.9125,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing supplements; small trust circles negotiate allocation before desperation sets in.",
+    "full_response": "Stored rice buys time for negotiation; fishing supplements; small trust circles negotiate allocation before desperation sets in.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W74",
+    "population": 252,
+    "distance": 0.925,
+    "answer": 1,
+    "reasoning": "Stored rice buys time for negotiation; fishing sustains partial rations if rationing holds; 252 is large enough that most don't know each other, so theft and hoarding begin quietly before violence escalates.",
+    "full_response": "Stored rice buys time for negotiation; fishing sustains partial rations if rationing holds; 252 is large enough that most don't know each other, so theft and hoarding begin quietly before violence escalates.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W75",
+    "population": 255,
+    "distance": 0.9375,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing supplements; 255 people know each other's faces and families; desperation hasn't peaked yet.",
+    "full_response": "Stored rice buys time for negotiation; fishing supplements; 255 people know each other's faces and families; desperation hasn't peaked yet.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W76",
+    "population": 258,
+    "distance": 0.95,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing provides buffer. Small circles of trust already exist. No immediate scarcity trigger. Social fabric holds at 258 because everyone knows everyone will notice hoarding.",
+    "full_response": "Stored rice buys time for negotiation; fishing provides buffer. Small circles of trust already exist. No immediate scarcity trigger. Social fabric holds at 258 because everyone knows everyone will notice hoarding.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W77",
+    "population": 261,
+    "distance": 0.9625,
+    "answer": 0,
+    "reasoning": "Stored rice feeds 30 for months, fishing supplements, 261 people split into trusted circles already cooperating locally \u2014 scarcity forces rationing but doesn't immediately shatter established bonds.",
+    "full_response": "Stored rice feeds 30 for months, fishing supplements, 261 people split into trusted circles already cooperating locally \u2014 scarcity forces rationing but doesn't immediately shatter established bonds.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W78",
+    "population": 264,
+    "distance": 0.975,
+    "answer": 0,
+    "reasoning": "Stored rice feeds 30 for months; 264 people need rationing system immediately. First weeks: natural leaders emerge from existing trust circles, organize distribution. Fishing supplements. Real scarcity arrives gradually, not suddenly. By week 8, tens",
+    "full_response": "Stored rice feeds 30 for months; 264 people need rationing system immediately. First weeks: natural leaders emerge from existing trust circles, organize distribution. Fishing supplements. Real scarcity arrives gradually, not suddenly. By week 8, tensions high but cooperation still holds because starvation isn't yet individual \u2014 it's collective. Violence needs a spark; slow hunger just breeds resentment.\n\nNO CONFLICT"
+  },
+  {
+    "world_id": "W79",
+    "population": 267,
+    "distance": 0.9875,
+    "answer": 1,
+    "reasoning": "Stored rice sustains 30 people for months; fishing supplements for 267. Rationing breaks down when scarcity hits, someone hoards, a family goes hungry. First violence erupts around week 4-5 over distribution.",
+    "full_response": "Stored rice sustains 30 people for months; fishing supplements for 267. Rationing breaks down when scarcity hits, someone hoards, a family goes hungry. First violence erupts around week 4-5 over distribution.\n\nCONFLICT"
+  },
+  {
+    "world_id": "W80",
+    "population": 270,
+    "distance": 1.0,
+    "answer": 0,
+    "reasoning": "Stored rice buys time for negotiation; fishing sustains a baseline; 270 is large enough that formal sharing rules emerge before desperation forces violence.",
+    "full_response": "Stored rice buys time for negotiation; fishing sustains a baseline; 270 is large enough that formal sharing rules emerge before desperation forces violence.\n\nNO CONFLICT"
+  }
+]

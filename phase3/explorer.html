@@ -327,6 +327,34 @@
     margin-top: 12px;
     font-style: italic;
   }
+
+  .reasoning-box {
+    margin-top: 16px;
+    padding: 16px;
+    background: #0a0a0f;
+    border: 1px solid #2a2a30;
+    border-radius: 8px;
+    display: none;
+  }
+
+  .reasoning-header {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: #f4a261;
+    margin-bottom: 8px;
+  }
+
+  .reasoning-text {
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.6;
+    white-space: pre-wrap;
+  }
+
+  .world-cell.selected {
+    outline: 2px solid #f4a261;
+    outline-offset: 1px;
+  }
 </style>
 </head>
 <body>
@@ -340,6 +368,7 @@ let DATA = null;
 let sphereRadius = 1.0;
 let wouldThreshold = 0.7;
 let selectedConsequent = null;
+let selectedCellIdx = null;
 
 // from phase3/experiment.py
 const CONSEQUENTS = [
@@ -549,7 +578,7 @@ function render() {
       <div class="consequent-selector">
         ${cids.map(cid => `
           <button class="consequent-btn ${cid === selectedConsequent ? 'active' : ''}"
-                  onclick="selectedConsequent='${cid}'; render()">
+                  onclick="selectedConsequent='${cid}'; selectedCellIdx=null; render()">
             ${cid}: ${results[cid].name}
           </button>
         `).join('')}
@@ -562,7 +591,9 @@ function render() {
           else if (r.answer === 1) cls = 'yes';
           else if (r.answer === 0) cls = 'no';
           else cls = 'unknown';
-          return `<div class="world-cell ${cls}" 
+          const selected = idx === selectedCellIdx;
+          return `<div class="world-cell ${cls}${selected ? ' selected' : ''}" 
+                       onclick="showReasoning('${selectedConsequent}', ${idx})"
                        title="pop=${r.population} → ${r.answer === 1 ? 'YES' : r.answer === 0 ? 'NO' : '?'}">${r.population}</div>`;
         }).join('')}
       </div>
@@ -570,6 +601,11 @@ function render() {
         <span><span class="legend-dot" style="background:#e63946"></span> YES</span>
         <span><span class="legend-dot" style="background:#2a9d8f"></span> NO</span>
         <span><span class="legend-dot" style="background:#1a1a20"></span> outside sphere</span>
+        <span style="margin-left:16px;color:#666">click a cell for the model's answer</span>
+      </div>
+      <div id="reasoning-box" class="reasoning-box">
+        <div id="reasoning-header" class="reasoning-header"></div>
+        <div id="reasoning-text" class="reasoning-text"></div>
       </div>
       <div class="counterfactual-prompt">
         <h3>${selMeta.id}: ${selMeta.name} — user message sent to the model</h3>
@@ -580,6 +616,29 @@ function render() {
   `;
 
   document.getElementById('app').innerHTML = html;
+  if (selectedCellIdx !== null) {
+    showReasoning(selectedConsequent, selectedCellIdx);
+  }
+}
+
+function showReasoning(cid, idx) {
+  selectedCellIdx = idx;
+  document.querySelectorAll('.world-cell').forEach((el, i) => {
+    el.classList.toggle('selected', i === idx);
+  });
+
+  const r = DATA.all_results[cid].responses[idx];
+  const meta = getConsequentMeta(cid);
+  const answer = r.answer === 1 ? 'YES' : r.answer === 0 ? 'NO' : '???';
+  const ansColor = r.answer === 1 ? '#e63946' : '#2a9d8f';
+
+  const box = document.getElementById('reasoning-box');
+  const header = document.getElementById('reasoning-header');
+  const text = document.getElementById('reasoning-text');
+
+  header.innerHTML = `${cid}: ${meta.name} — population ${r.population} (distance ${r.distance.toFixed(3)}) — <span style="color:${ansColor};font-weight:700">${answer}</span>`;
+  text.textContent = r.full_response || r.reasoning || 'no response available';
+  box.style.display = 'block';
 }
 
 loadData();

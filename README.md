@@ -8,7 +8,7 @@ tests whether counterfactuals track closest possible worlds (phase 1), then lewi
 pip install -r requirements.txt
 ```
 
-local api proxy at http://localhost:8001
+i set up my local api proxy at http://localhost:8001, you can set your anthropic api key instead in the code instead.
 
 ## phase 1
 
@@ -28,3 +28,16 @@ python phase2/significance.py
 ```
 
 results go to each phase's `results/` and `plots/` folders.
+
+## phase 3
+
+```bash
+python phase3/experiment.py
+python phase3/visualize.py
+python phase3/advanced_viz.py
+python phase3/lewis_difference.py
+```
+
+15 consequents × 81 worlds. live explorer: https://lewis-worlds.vercel.app
+
+redeploy: `vercel deploy --prod`

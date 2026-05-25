@@ -5,14 +5,22 @@ Reads phase3_results.json and produces the counterfactual likelihood landscape.
 """
 
 import json
-import matplotlib.pyplot as plt
+from pathlib import Path
+
 import matplotlib
+import matplotlib.pyplot as plt
 import numpy as np
-matplotlib.use('Agg')
+
+matplotlib.use("Agg")
+
+PHASE_DIR = Path(__file__).resolve().parent
+RESULTS_DIR = PHASE_DIR / "results"
+PLOTS_DIR = PHASE_DIR / "plots"
+PLOTS_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def load_results():
-    with open("phase3_results.json", "r") as f:
+    with open(RESULTS_DIR / "results.json", "r") as f:
         return json.load(f)
 
 
@@ -81,8 +89,9 @@ def plot_all_curves(data):
     ax2.set_xlabel("Population", fontsize=10)
 
     plt.tight_layout()
-    plt.savefig("phase3_all_curves.png", dpi=150, bbox_inches="tight")
-    print("Saved: phase3_all_curves.png")
+    out = PLOTS_DIR / "all_curves.png"
+    plt.savefig(out, dpi=150, bbox_inches="tight")
+    print(f"Saved: {out}")
     plt.close()
 
 
@@ -125,8 +134,9 @@ def plot_ranking_bar(data):
     ax.grid(True, alpha=0.2, axis="x")
 
     plt.tight_layout()
-    plt.savefig("phase3_ranking.png", dpi=150)
-    print("Saved: phase3_ranking.png")
+    out = PLOTS_DIR / "ranking.png"
+    plt.savefig(out, dpi=150)
+    print(f"Saved: {out}")
     plt.close()
 
 
@@ -156,8 +166,9 @@ def plot_inner_vs_outer(data):
     ax.grid(True, alpha=0.2, axis="y")
 
     plt.tight_layout()
-    plt.savefig("phase3_inner_vs_outer.png", dpi=150)
-    print("Saved: phase3_inner_vs_outer.png")
+    out = PLOTS_DIR / "inner_vs_outer.png"
+    plt.savefig(out, dpi=150)
+    print(f"Saved: {out}")
     plt.close()
 
 
@@ -205,8 +216,9 @@ def plot_gradient_heatmap(data):
 
     plt.colorbar(im, ax=ax, label="CLS", shrink=0.8)
     plt.tight_layout()
-    plt.savefig("phase3_heatmap.png", dpi=150)
-    print("Saved: phase3_heatmap.png")
+    out = PLOTS_DIR / "heatmap.png"
+    plt.savefig(out, dpi=150)
+    print(f"Saved: {out}")
     plt.close()
 
 

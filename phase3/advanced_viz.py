@@ -7,15 +7,23 @@ Network graph: connect consequents that co-occur in the same worlds.
 """
 
 import json
-import numpy as np
-import matplotlib.pyplot as plt
+from pathlib import Path
+
 import matplotlib
+import matplotlib.pyplot as plt
+import numpy as np
 from mpl_toolkits.mplot3d import Axes3D
-matplotlib.use('Agg')
+
+matplotlib.use("Agg")
+
+PHASE_DIR = Path(__file__).resolve().parent
+RESULTS_DIR = PHASE_DIR / "results"
+PLOTS_DIR = PHASE_DIR / "plots"
+PLOTS_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def load_results():
-    with open("phase3_results.json", "r") as f:
+    with open(RESULTS_DIR / "results.json", "r") as f:
         return json.load(f)
 
 
@@ -89,8 +97,9 @@ def plot_sphere_expansion(data):
                 bbox=dict(boxstyle="round,pad=0.3", facecolor="white", alpha=0.8))
 
     plt.tight_layout()
-    plt.savefig("phase3_sphere_expansion.png", dpi=150, bbox_inches="tight")
-    print("Saved: phase3_sphere_expansion.png")
+    out = PLOTS_DIR / "sphere_expansion.png"
+    plt.savefig(out, dpi=150, bbox_inches="tight")
+    print(f"Saved: {out}")
     plt.close()
 
 
@@ -186,8 +195,9 @@ def plot_cooccurrence_network(data):
     ax.legend(loc="lower right", fontsize=10)
 
     plt.tight_layout()
-    plt.savefig("phase3_network.png", dpi=150)
-    print("Saved: phase3_network.png")
+    out = PLOTS_DIR / "network.png"
+    plt.savefig(out, dpi=150)
+    print(f"Saved: {out}")
     plt.close()
 
 
@@ -254,8 +264,9 @@ def plot_3d_surface(data):
     fig.colorbar(surf, ax=ax, shrink=0.5, label="CLS")
 
     plt.tight_layout()
-    plt.savefig("phase3_3d_surface.png", dpi=150)
-    print("Saved: phase3_3d_surface.png")
+    out = PLOTS_DIR / "3d_surface.png"
+    plt.savefig(out, dpi=150)
+    print(f"Saved: {out}")
     plt.close()
 
 
@@ -323,8 +334,9 @@ def plot_closest_worlds_detail(data):
                 color="#1D3557")
 
     plt.tight_layout()
-    plt.savefig("phase3_inner_sphere_detail.png", dpi=150)
-    print("Saved: phase3_inner_sphere_detail.png")
+    out = PLOTS_DIR / "inner_sphere_detail.png"
+    plt.savefig(out, dpi=150)
+    print(f"Saved: {out}")
     plt.close()
 
 
@@ -387,8 +399,9 @@ def plot_threshold_sweep(data):
     ax.text(0.85, -0.8, "WOULD", ha="center", fontsize=11, color="#E63946", fontweight="bold")
 
     plt.tight_layout()
-    plt.savefig("phase3_threshold_analysis.png", dpi=150)
-    print("Saved: phase3_threshold_analysis.png")
+    out = PLOTS_DIR / "threshold_analysis.png"
+    plt.savefig(out, dpi=150)
+    print(f"Saved: {out}")
     plt.close()
 
 

@@ -7,14 +7,22 @@ The difference between left edge and right edge IS Lewis's contribution.
 """
 
 import json
-import numpy as np
-import matplotlib.pyplot as plt
+from pathlib import Path
+
 import matplotlib
-matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+import numpy as np
+
+matplotlib.use("Agg")
+
+PHASE_DIR = Path(__file__).resolve().parent
+RESULTS_DIR = PHASE_DIR / "results"
+PLOTS_DIR = PHASE_DIR / "plots"
+PLOTS_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def load_results():
-    with open("phase3_results.json", "r") as f:
+    with open(RESULTS_DIR / "results.json", "r") as f:
         return json.load(f)
 
 
@@ -87,8 +95,9 @@ def plot_verdict_map(data, threshold=0.8):
             fontsize=9, fontweight="bold", va="bottom")
     
     plt.tight_layout()
-    plt.savefig("phase3_verdict_map.png", dpi=150)
-    print("Saved: phase3_verdict_map.png")
+    out = PLOTS_DIR / "verdict_map.png"
+    plt.savefig(out, dpi=150)
+    print(f"Saved: {out}")
     plt.close()
     
     # --- PLOT 2: CLS heatmap (continuous values) ---
@@ -126,8 +135,9 @@ def plot_verdict_map(data, threshold=0.8):
     
     plt.colorbar(im, ax=ax, label="CLS", shrink=0.8)
     plt.tight_layout()
-    plt.savefig("phase3_cls_heatmap_sweep.png", dpi=150)
-    print("Saved: phase3_cls_heatmap_sweep.png")
+    out = PLOTS_DIR / "cls_heatmap_sweep.png"
+    plt.savefig(out, dpi=150)
+    print(f"Saved: {out}")
     plt.close()
     
     # --- PLOT 3: The key comparison — inner vs full ---
@@ -184,8 +194,9 @@ def plot_verdict_map(data, threshold=0.8):
             fontsize=11, fontweight="bold", color="#f4a261", ha="center")
     
     plt.tight_layout()
-    plt.savefig("phase3_lewis_difference.png", dpi=150)
-    print("Saved: phase3_lewis_difference.png")
+    out = PLOTS_DIR / "lewis_difference.png"
+    plt.savefig(out, dpi=150)
+    print(f"Saved: {out}")
     plt.close()
     
     # --- PRINT SUMMARY ---

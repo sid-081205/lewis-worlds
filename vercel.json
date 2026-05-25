@@ -1,0 +1,6 @@
+{
+  "framework": null,
+  "installCommand": "",
+  "buildCommand": "mkdir -p public/results && cp phase3/explorer.html public/index.html && cp phase3/results/results.json public/results/",
+  "outputDirectory": "public"
+}

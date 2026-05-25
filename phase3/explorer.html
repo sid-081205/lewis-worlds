@@ -295,12 +295,105 @@
     color: #e63946;
     font-family: 'IBM Plex Mono', monospace;
   }
+
+  .prompt-panel {
+    margin-bottom: 24px;
+    padding: 20px;
+    background: #0a0a0f;
+    border: 1px solid #2a2a30;
+    border-radius: 10px;
+  }
+
+  .prompt-panel-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #f4a261;
+    margin-bottom: 16px;
+  }
+
+  .prompt-block {
+    margin-bottom: 16px;
+  }
+
+  .prompt-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .prompt-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 8px;
+  }
+
+  .prompt-pre {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #ccc;
+    white-space: pre-wrap;
+    word-break: break-word;
+    background: #141418;
+    border: 1px solid #1f1f26;
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin: 0;
+  }
+
+  .counterfactual-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 320px;
+    overflow-y: auto;
+  }
+
+  .counterfactual-item {
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 10px 12px;
+    background: #141418;
+    border: 1px solid #1f1f26;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+
+  .counterfactual-item:hover {
+    border-color: #444;
+  }
+
+  .counterfactual-item.active {
+    border-color: #f4a261;
+    background: #1a1814;
+  }
+
+  .counterfactual-item .cf-id {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: #f4a261;
+    margin-right: 8px;
+  }
+
+  .counterfactual-item .cf-name {
+    font-weight: 700;
+    color: #e8e4dc;
+  }
+
+  .counterfactual-item .cf-question {
+    display: block;
+    margin-top: 6px;
+    color: #999;
+    font-style: italic;
+  }
 </style>
 </head>
 <body>
 
 <div class="container" id="app">
-  <div class="error-msg" id="loading">loading phase3_results.json...</div>
+  <div class="error-msg" id="loading">loading results/results.json...</div>
 </div>
 
 <script>
@@ -308,16 +401,70 @@ let DATA = null;
 let sphereRadius = 1.0;
 let wouldThreshold = 0.7;
 let selectedConsequent = null;
+let selectedPopulation = 30;
+
+// exact prompts from phase3/experiment.py
+const MSG_TEMPLATE = `The rice field has just been completely destroyed. It cannot be replanted or recovered.
+
+There are exactly {population} people on this island. Not {alt_pop}, not {alt_pop_low} — exactly {population}. Think about what exactly {population} people would do.
+
+{question}
+
+One short phrase of reasoning, then on a new line write exactly YES or NO.`;
+
+const SYSTEM_PROMPT_TEMPLATE = `You exist in the following world. This is the complete and total description of your reality. Reason only from what is described below.
+
+THE ISLAND
+
+A remote island with no contact with the outside world. No one can leave. No outside help is possible.
+
+There are {population} people living on the island. They are ordinary people with the full range of human behaviour — capable of kindness and selfishness, cooperation and competition, trust and suspicion, generosity and hoarding. They are neither unusually virtuous nor unusually cruel. They behave as typical humans do under the circumstances they face.
+
+There is no formal government or legal system on the island. There is no single leader. People organise themselves however they see fit. In recent months, as the island's population has settled into its current size, people have naturally formed smaller circles of trust — families, close friends, people who fish together or farm together.
+
+The island has one rice field. It was originally designed to feed about 30 people. The island also has fishing waters, but the catch is limited — enough to supplement meals, not to replace the rice field.
+
+There is a storage hut with dried rice, but it holds only enough to feed about 30 people for several months.
+
+The island has no weapons beyond basic farming and fishing tools.
+
+You always respond with extreme brevity. One short phrase maximum. Just a gut judgment and the final verdict.`;
+
+const SHARED_ANTECEDENT = `The rice field has just been completely destroyed. It cannot be replanted or recovered.`;
+
+function formatUserMessage(population, question) {
+  return MSG_TEMPLATE
+    .replaceAll('{population}', population)
+    .replace('{alt_pop}', population + 3)
+    .replace('{alt_pop_low}', population - 3)
+    .replace('{question}', question);
+}
+
+function formatSystemPrompt(population) {
+  return SYSTEM_PROMPT_TEMPLATE.replaceAll('{population}', population);
+}
+
+function sortCids(cids) {
+  return [...cids].sort((a, b) => parseInt(a.slice(1), 10) - parseInt(b.slice(1), 10));
+}
+
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
 
 async function loadData() {
   try {
-    const resp = await fetch('phase3_results.json');
+    const resp = await fetch('results/results.json');
     DATA = await resp.json();
     selectedConsequent = DATA.summary[0]?.id || Object.keys(DATA.all_results)[0];
     render();
   } catch (e) {
     document.getElementById('loading').textContent =
-      'could not load phase3_results.json — make sure this html file is in the same folder and served via a local server (python -m http.server)';
+      'could not load results/results.json — serve from phase3/ (cd phase3 && python -m http.server)';
   }
 }
 
@@ -378,6 +525,10 @@ function render() {
 
   // Selected consequent data
   const selData = results[selectedConsequent];
+  const selQuestion = selData.question || '';
+  const sortedCids = sortCids(cids);
+  const exampleUserMsg = formatUserMessage(selectedPopulation, selQuestion);
+  const exampleSystemMsg = formatSystemPrompt(selectedPopulation);
 
   let html = `
     <h1>lewis counterfactual explorer</h1>
@@ -468,6 +619,48 @@ function render() {
     <div class="chart-section">
       <div class="chart-title">world detail — ${selData.name}</div>
       <div class="chart-subtitle">each cell is one world. red = YES, green = NO. greyed out = outside current sphere.</div>
+
+      <div class="prompt-panel">
+        <div class="prompt-panel-title">prompts sent to the model (from phase3/experiment.py)</div>
+
+        <div class="prompt-block">
+          <div class="prompt-label">shared antecedent (identical for all 15 counterfactuals)</div>
+          <pre class="prompt-pre">${escapeHtml(SHARED_ANTECEDENT)}</pre>
+        </div>
+
+        <div class="prompt-block">
+          <div class="prompt-label">user message template — population and consequent are inserted per call</div>
+          <pre class="prompt-pre">${escapeHtml(MSG_TEMPLATE)}</pre>
+        </div>
+
+        <div class="prompt-block">
+          <div class="prompt-label">all 15 consequents — click to select</div>
+          <div class="counterfactual-list">
+            ${sortedCids.map(cid => {
+              const c = results[cid];
+              const active = cid === selectedConsequent ? 'active' : '';
+              return `
+                <div class="counterfactual-item ${active}"
+                     onclick="selectedConsequent='${cid}'; render()">
+                  <span class="cf-id">${cid}</span><span class="cf-name">${escapeHtml(c.name)}</span>
+                  <span class="cf-question">${escapeHtml(c.question)}</span>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+
+        <div class="prompt-block">
+          <div class="prompt-label">system prompt at population ${selectedPopulation} (base world = 30)</div>
+          <pre class="prompt-pre" id="system-prompt-preview">${escapeHtml(exampleSystemMsg)}</pre>
+        </div>
+
+        <div class="prompt-block">
+          <div class="prompt-label">full user message — ${selectedConsequent}: ${escapeHtml(selData.name)} @ population ${selectedPopulation}</div>
+          <pre class="prompt-pre" id="user-msg-preview">${escapeHtml(exampleUserMsg)}</pre>
+        </div>
+      </div>
+
       <div class="consequent-selector">
         ${cids.map(cid => `
           <button class="consequent-btn ${cid === selectedConsequent ? 'active' : ''}"
@@ -486,7 +679,7 @@ function render() {
           else cls = 'unknown';
           return `<div class="world-cell ${cls}" 
                        onclick="showReasoning('${selectedConsequent}', ${idx})"
-                       title="pop=${r.population} → ${r.answer === 1 ? 'YES' : r.answer === 0 ? 'NO' : '?'} (click for reasoning)">${r.population}</div>`;
+                       title="pop=${r.population} → ${r.answer === 1 ? 'YES' : r.answer === 0 ? 'NO' : '?'} (click for prompts + response)">${r.population}</div>`;
         }).join('')}
       </div>
       <div class="legend">
@@ -508,13 +701,20 @@ function render() {
 function showReasoning(cid, idx) {
   const r = DATA.all_results[cid].responses[idx];
   const name = DATA.all_results[cid].name;
+  const question = DATA.all_results[cid].question;
   const answer = r.answer === 1 ? 'YES' : r.answer === 0 ? 'NO' : '???';
   const ansColor = r.answer === 1 ? '#e63946' : '#2a9d8f';
-  
+
+  selectedPopulation = r.population;
+  const sysPre = document.getElementById('system-prompt-preview');
+  const userPre = document.getElementById('user-msg-preview');
+  if (sysPre) sysPre.textContent = formatSystemPrompt(r.population);
+  if (userPre) userPre.textContent = formatUserMessage(r.population, question);
+
   const box = document.getElementById('reasoning-box');
   const header = document.getElementById('reasoning-header');
   const text = document.getElementById('reasoning-text');
-  
+
   header.innerHTML = `${cid}: ${name} — population ${r.population} (distance ${r.distance.toFixed(3)}) — <span style="color:${ansColor};font-weight:700">${answer}</span>`;
   text.textContent = r.full_response || r.reasoning || 'no reasoning available';
   box.style.display = 'block';

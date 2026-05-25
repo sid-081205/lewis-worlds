@@ -1,0 +1,7 @@
+phase1/
+phase2/
+phase3/*.py
+phase3/plots/
+requirements.txt
+.git/
+public/

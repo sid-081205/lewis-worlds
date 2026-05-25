@@ -1,9 +1,14 @@
 """
-Fix phase3_results.json — re-parse any answer=-1 entries
+Fix results.json — re-parse any answer=-1 entries
 by stripping punctuation from YES/NO responses.
 """
 
 import json
+from pathlib import Path
+
+PHASE_DIR = Path(__file__).resolve().parent
+RESULTS_DIR = PHASE_DIR / "results"
+RESULTS_PATH = RESULTS_DIR / "results.json"
 
 
 def parse_yes_no(text: str) -> int:
@@ -27,7 +32,7 @@ def parse_yes_no(text: str) -> int:
 
 
 def main():
-    with open("phase3_results.json", "r") as f:
+    with open(RESULTS_PATH, "r") as f:
         data = json.load(f)
 
     fixed_count = 0
@@ -66,12 +71,12 @@ def main():
         s["valid_count"] = len(valid)
 
     # Save
-    with open("phase3_results.json", "w") as f:
+    with open(RESULTS_PATH, "w") as f:
         json.dump(data, f, indent=2)
 
     print(f"\nFixed {fixed_count} answers.")
     print(f"Still broken: {still_broken}")
-    print(f"Saved updated phase3_results.json")
+    print(f"Saved updated {RESULTS_PATH}")
 
 
 if __name__ == "__main__":

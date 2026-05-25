@@ -9,7 +9,13 @@ Each consequent is asked as a separate API call for independence.
 import json
 import re
 import time
+from pathlib import Path
+
 from anthropic import Anthropic
+
+PHASE_DIR = Path(__file__).resolve().parent
+RESULTS_DIR = PHASE_DIR / "results"
+RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
 # --- CONFIGURATION ---
 
@@ -242,9 +248,10 @@ def run_phase3():
         "summary": summary,
         "all_results": {k: v for k, v in all_results.items()},
     }
-    with open("phase3_results.json", "w") as f:
+    results_path = RESULTS_DIR / "results.json"
+    with open(results_path, "w") as f:
         json.dump(output, f, indent=2)
-    print(f"\nResults saved to phase3_results.json")
+    print(f"\nResults saved to {results_path}")
     print("=" * 70)
 
 

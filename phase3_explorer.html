@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lewis Counterfactual Explorer</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Source+Serif+4:ital,wght@0,400;0,700;1,400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: #0a0a0f;
+    color: #e8e4dc;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #f0ece4;
+    letter-spacing: -0.5px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: #888;
+    margin-bottom: 40px;
+    font-style: italic;
+  }
+
+  .controls {
+    background: #141418;
+    border: 1px solid #2a2a30;
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 32px;
+  }
+
+  .slider-group {
+    margin-bottom: 20px;
+  }
+
+  .slider-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: #aaa;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .slider-value {
+    color: #f4a261;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  input[type="range"] {
+    width: 100%;
+    height: 6px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #2a2a30;
+    border-radius: 3px;
+    outline: none;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #f4a261;
+    cursor: pointer;
+    border: 2px solid #0a0a0f;
+  }
+
+  .threshold-zones {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+  }
+
+  .zone-would-not { color: #2a9d8f; }
+  .zone-might { color: #e9c46a; }
+  .zone-would { color: #e63946; }
+
+  .stats-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .stat-card {
+    background: #141418;
+    border: 1px solid #2a2a30;
+    border-radius: 10px;
+    padding: 16px 20px;
+    flex: 1;
+    min-width: 140px;
+  }
+
+  .stat-number {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 28px;
+    font-weight: 600;
+    color: #f4a261;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: #777;
+    margin-top: 4px;
+  }
+
+  .results-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+  }
+
+  .results-table th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #666;
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid #2a2a30;
+  }
+
+  .results-table td {
+    padding: 12px;
+    border-bottom: 1px solid #1a1a20;
+    font-size: 14px;
+  }
+
+  .results-table tr:hover {
+    background: #1a1a20;
+  }
+
+  .cls-bar-container {
+    width: 200px;
+    height: 8px;
+    background: #1a1a20;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .cls-bar {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.4s ease, background 0.3s ease;
+  }
+
+  .verdict-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+
+  .verdict-would { background: #e6394622; color: #e63946; border: 1px solid #e6394644; }
+  .verdict-might { background: #e9c46a22; color: #e9c46a; border: 1px solid #e9c46a44; }
+  .verdict-wouldnot { background: #2a9d8f22; color: #2a9d8f; border: 1px solid #2a9d8f44; }
+
+  .cls-number {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .chart-section {
+    background: #141418;
+    border: 1px solid #2a2a30;
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 32px;
+  }
+
+  .chart-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .chart-subtitle {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 20px;
+  }
+
+  canvas {
+    width: 100% !important;
+    height: 400px !important;
+  }
+
+  .world-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(28px, 1fr));
+    gap: 3px;
+    margin-top: 16px;
+  }
+
+  .world-cell {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s;
+  }
+
+  .world-cell:hover {
+    transform: scale(1.4);
+    z-index: 10;
+  }
+
+  .world-cell.yes { background: #e63946; color: white; }
+  .world-cell.no { background: #2a9d8f; color: white; }
+  .world-cell.unknown { background: #333; color: #666; }
+  .world-cell.excluded { background: #1a1a20; color: #333; }
+
+  .legend {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+    font-size: 12px;
+    color: #888;
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+
+  .consequent-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+
+  .consequent-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: 1px solid #2a2a30;
+    background: #1a1a20;
+    color: #aaa;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .consequent-btn.active {
+    background: #f4a261;
+    color: #0a0a0f;
+    border-color: #f4a261;
+    font-weight: 600;
+  }
+
+  .consequent-btn:hover {
+    border-color: #f4a261;
+  }
+
+  .error-msg {
+    padding: 40px;
+    text-align: center;
+    color: #e63946;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+</style>
+</head>
+<body>
+
+<div class="container" id="app">
+  <div class="error-msg" id="loading">loading phase3_results.json...</div>
+</div>
+
+<script>
+let DATA = null;
+let sphereRadius = 1.0;
+let wouldThreshold = 0.7;
+let selectedConsequent = null;
+
+async function loadData() {
+  try {
+    const resp = await fetch('phase3_results.json');
+    DATA = await resp.json();
+    selectedConsequent = DATA.summary[0]?.id || Object.keys(DATA.all_results)[0];
+    render();
+  } catch (e) {
+    document.getElementById('loading').textContent =
+      'could not load phase3_results.json — make sure this html file is in the same folder and served via a local server (python -m http.server)';
+  }
+}
+
+function computeCLS(responses, maxDist) {
+  const valid = responses.filter(r => r.answer === 0 || r.answer === 1);
+  const inSphere = valid.filter(r => r.distance <= maxDist);
+  if (inSphere.length === 0) return { cls: 0, count: 0, yes: 0, no: 0 };
+  const yes = inSphere.filter(r => r.answer === 1).length;
+  return {
+    cls: yes / inSphere.length,
+    count: inSphere.length,
+    yes: yes,
+    no: inSphere.length - yes,
+  };
+}
+
+function getVerdict(cls) {
+  if (cls >= wouldThreshold) return 'would';
+  if (cls > 0) return 'might';
+  return 'wouldnot';
+}
+
+function getVerdictLabel(v) {
+  if (v === 'would') return 'WOULD';
+  if (v === 'might') return 'MIGHT';
+  return 'WOULD NOT';
+}
+
+function getBarColor(cls) {
+  if (cls >= wouldThreshold) return '#e63946';
+  if (cls > 0.3) return '#e9c46a';
+  return '#2a9d8f';
+}
+
+function distToPop(d) {
+  return Math.round(30 + d * 240);
+}
+
+function render() {
+  if (!DATA) return;
+
+  const results = DATA.all_results;
+  const cids = Object.keys(results);
+
+  // Compute CLS for each consequent at current sphere radius
+  const rows = cids.map(cid => {
+    const r = results[cid];
+    const stats = computeCLS(r.responses, sphereRadius);
+    return { id: cid, name: r.name, ...stats };
+  });
+  rows.sort((a, b) => b.cls - a.cls);
+
+  // Count stats
+  const inSphereCount = rows[0]?.count || 0;
+  const wouldCount = rows.filter(r => getVerdict(r.cls) === 'would').length;
+  const mightCount = rows.filter(r => getVerdict(r.cls) === 'might').length;
+  const wouldNotCount = rows.filter(r => getVerdict(r.cls) === 'wouldnot').length;
+
+  // Selected consequent data
+  const selData = results[selectedConsequent];
+
+  let html = `
+    <h1>lewis counterfactual explorer</h1>
+    <p class="subtitle">phase 3 — adjust the sphere radius and threshold to see how the counterfactual verdicts change</p>
+
+    <div class="controls">
+      <div class="slider-group">
+        <div class="slider-label">
+          <span>sphere radius <em>r</em> — how far from the base world to look</span>
+          <span class="slider-value">r = ${sphereRadius.toFixed(2)} (pop ≤ ${distToPop(sphereRadius)})</span>
+        </div>
+        <input type="range" min="0.01" max="1" step="0.01" value="${sphereRadius}"
+               oninput="sphereRadius=parseFloat(this.value); render()">
+        <div class="threshold-zones">
+          <span>closest worlds (pop 30)</span>
+          <span>all worlds (pop 270)</span>
+        </div>
+      </div>
+      <div class="slider-group">
+        <div class="slider-label">
+          <span>threshold <em>T</em> — how strict is "would"?</span>
+          <span class="slider-value">T = ${wouldThreshold.toFixed(2)}</span>
+        </div>
+        <input type="range" min="0.1" max="0.95" step="0.05" value="${wouldThreshold}"
+               oninput="wouldThreshold=parseFloat(this.value); render()">
+        <div class="threshold-zones">
+          <span class="zone-might">permissive</span>
+          <span class="zone-would">strict</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-number">${inSphereCount}</div>
+        <div class="stat-label">worlds in sphere S(${sphereRadius.toFixed(2)})</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" style="color:#e63946">${wouldCount}</div>
+        <div class="stat-label">would happen</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" style="color:#e9c46a">${mightCount}</div>
+        <div class="stat-label">might happen</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" style="color:#2a9d8f">${wouldNotCount}</div>
+        <div class="stat-label">would not happen</div>
+      </div>
+    </div>
+
+    <table class="results-table">
+      <thead>
+        <tr>
+          <th>rank</th>
+          <th>consequent</th>
+          <th>CLS within S(r)</th>
+          <th style="width:220px">likelihood</th>
+          <th>yes / no</th>
+          <th>verdict at T=${wouldThreshold.toFixed(2)}</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${rows.map((r, i) => {
+          const v = getVerdict(r.cls);
+          const barW = Math.max(1, r.cls * 100);
+          return `
+            <tr>
+              <td style="font-family:'IBM Plex Mono',monospace;color:#666">${i + 1}</td>
+              <td>
+                <span style="font-family:'IBM Plex Mono',monospace;color:#666;font-size:11px">${r.id}</span>
+                ${r.name}
+              </td>
+              <td><span class="cls-number" style="color:${getBarColor(r.cls)}">${r.cls.toFixed(3)}</span></td>
+              <td>
+                <div class="cls-bar-container">
+                  <div class="cls-bar" style="width:${barW}%;background:${getBarColor(r.cls)}"></div>
+                </div>
+              </td>
+              <td style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#888">${r.yes}/${r.yes + r.no}</td>
+              <td><span class="verdict-badge verdict-${v}">${getVerdictLabel(v)}</span></td>
+            </tr>
+          `;
+        }).join('')}
+      </tbody>
+    </table>
+
+    <div class="chart-section">
+      <div class="chart-title">world detail — ${selData.name}</div>
+      <div class="chart-subtitle">each cell is one world. red = YES, green = NO. greyed out = outside current sphere.</div>
+      <div class="consequent-selector">
+        ${cids.map(cid => `
+          <button class="consequent-btn ${cid === selectedConsequent ? 'active' : ''}"
+                  onclick="selectedConsequent='${cid}'; render()">
+            ${cid}: ${results[cid].name}
+          </button>
+        `).join('')}
+      </div>
+      <div class="world-grid">
+        ${selData.responses.map((r, idx) => {
+          const inSphere = r.distance <= sphereRadius;
+          let cls = '';
+          if (!inSphere) cls = 'excluded';
+          else if (r.answer === 1) cls = 'yes';
+          else if (r.answer === 0) cls = 'no';
+          else cls = 'unknown';
+          return `<div class="world-cell ${cls}" 
+                       onclick="showReasoning('${selectedConsequent}', ${idx})"
+                       title="pop=${r.population} → ${r.answer === 1 ? 'YES' : r.answer === 0 ? 'NO' : '?'} (click for reasoning)">${r.population}</div>`;
+        }).join('')}
+      </div>
+      <div class="legend">
+        <span><span class="legend-dot" style="background:#e63946"></span> YES</span>
+        <span><span class="legend-dot" style="background:#2a9d8f"></span> NO</span>
+        <span><span class="legend-dot" style="background:#1a1a20"></span> outside sphere</span>
+        <span style="margin-left:16px;color:#666">click any cell to see reasoning</span>
+      </div>
+      <div id="reasoning-box" style="margin-top:16px;padding:16px;background:#0a0a0f;border:1px solid #2a2a30;border-radius:8px;display:none;">
+        <div id="reasoning-header" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#f4a261;margin-bottom:8px;"></div>
+        <div id="reasoning-text" style="font-size:14px;color:#ccc;line-height:1.6;"></div>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('app').innerHTML = html;
+}
+
+function showReasoning(cid, idx) {
+  const r = DATA.all_results[cid].responses[idx];
+  const name = DATA.all_results[cid].name;
+  const answer = r.answer === 1 ? 'YES' : r.answer === 0 ? 'NO' : '???';
+  const ansColor = r.answer === 1 ? '#e63946' : '#2a9d8f';
+  
+  const box = document.getElementById('reasoning-box');
+  const header = document.getElementById('reasoning-header');
+  const text = document.getElementById('reasoning-text');
+  
+  header.innerHTML = `${cid}: ${name} — population ${r.population} (distance ${r.distance.toFixed(3)}) — <span style="color:${ansColor};font-weight:700">${answer}</span>`;
+  text.textContent = r.full_response || r.reasoning || 'no reasoning available';
+  box.style.display = 'block';
+}
+
+loadData();
+</script>
+</body>
+</html>

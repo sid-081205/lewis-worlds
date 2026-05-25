@@ -70,11 +70,11 @@
     {
       "id": "C1",
       "name": "Violent conflict",
-      "cls_overall": 0.9125,
+      "cls_overall": 0.9012,
       "cls_inner": 0.8,
       "cls_outer": 1.0,
       "gradient": 0.2,
-      "valid_count": 80
+      "valid_count": 81
     },
     {
       "id": "C5",
@@ -97,11 +97,11 @@
     {
       "id": "C7",
       "name": "Formal rules created",
-      "cls_overall": 0.7125,
+      "cls_overall": 0.7037,
       "cls_inner": 0.7,
-      "cls_outer": 0.7,
-      "gradient": 0.0,
-      "valid_count": 80
+      "cls_outer": 0.6,
+      "gradient": -0.1,
+      "valid_count": 81
     },
     {
       "id": "C2",
@@ -115,20 +115,20 @@
     {
       "id": "C11",
       "name": "Rationing established",
-      "cls_overall": 0.1139,
+      "cls_overall": 0.1111,
       "cls_inner": 0.2,
       "cls_outer": 0.1,
       "gradient": -0.1,
-      "valid_count": 79
+      "valid_count": 81
     },
     {
       "id": "C10",
       "name": "Community survives intact",
-      "cls_overall": 0.0127,
+      "cls_overall": 0.0123,
       "cls_inner": 0.0,
       "cls_outer": 0.0,
       "gradient": 0.0,
-      "valid_count": 79
+      "valid_count": 81
     },
     {
       "id": "C4",
@@ -137,7 +137,7 @@
       "cls_inner": 0.0,
       "cls_outer": 0.0,
       "gradient": 0.0,
-      "valid_count": 72
+      "valid_count": 81
     }
   ],
   "all_results": {
@@ -317,7 +317,7 @@
           "world_id": "W21",
           "population": 93,
           "distance": 0.2625,
-          "answer": -1,
+          "answer": 0,
           "reasoning": "Starvation forces cooperation before it forces violence.",
           "full_response": "Starvation forces cooperation before it forces violence.\n\nNO."
         },
@@ -2119,7 +2119,7 @@
           "world_id": "W1",
           "population": 33,
           "distance": 0.0125,
-          "answer": -1,
+          "answer": 0,
           "reasoning": "Scarcity triggers self-preservation; the surplus of 3 people over capacity makes rationing inevitable before voluntary s",
           "full_response": "Scarcity triggers self-preservation; the surplus of 3 people over capacity makes rationing inevitable before voluntary sacrifice occurs.\n\nNO."
         },
@@ -2151,7 +2151,7 @@
           "world_id": "W5",
           "population": 45,
           "distance": 0.0625,
-          "answer": -1,
+          "answer": 0,
           "reasoning": "Survival instinct overrides altruism when facing starvation with 15 people exceeding sustainable population.",
           "full_response": "Survival instinct overrides altruism when facing starvation with 15 people exceeding sustainable population.\n\nNO."
         },
@@ -2311,7 +2311,7 @@
           "world_id": "W25",
           "population": 105,
           "distance": 0.3125,
-          "answer": -1,
+          "answer": 0,
           "reasoning": "Survival instinct dominates; the math is brutal.",
           "full_response": "Survival instinct dominates; the math is brutal.\n\nNO."
         },
@@ -2367,7 +2367,7 @@
           "world_id": "W32",
           "population": 126,
           "distance": 0.4,
-          "answer": -1,
+          "answer": 0,
           "reasoning": "Survival calculus: some will, most won't.",
           "full_response": "Survival calculus: some will, most won't.\n\nNO."
         },
@@ -2415,7 +2415,7 @@
           "world_id": "W38",
           "population": 144,
           "distance": 0.475,
-          "answer": -1,
+          "answer": 0,
           "reasoning": "Survival instinct overrides altruism when facing starvation with fixed resources.",
           "full_response": "Survival instinct overrides altruism when facing starvation with fixed resources.\n\nNO."
         },
@@ -2487,7 +2487,7 @@
           "world_id": "W47",
           "population": 171,
           "distance": 0.5875,
-          "answer": -1,
+          "answer": 0,
           "reasoning": "Survival instinct overwhelms altruism when starving.",
           "full_response": "Survival instinct overwhelms altruism when starving.\n\nNO."
         },
@@ -2503,7 +2503,7 @@
           "world_id": "W49",
           "population": 177,
           "distance": 0.6125,
-          "answer": -1,
+          "answer": 0,
           "reasoning": "Survival instinct overrides altruism when starvation looms.",
           "full_response": "Survival instinct overrides altruism when starvation looms.\n\nNO."
         },
@@ -2543,7 +2543,7 @@
           "world_id": "W54",
           "population": 192,
           "distance": 0.675,
-          "answer": -1,
+          "answer": 0,
           "reasoning": "Desperate scarcity with no enforcement mechanism collapses voluntary altruism quickly.",
           "full_response": "Desperate scarcity with no enforcement mechanism collapses voluntary altruism quickly.\n\nNO."
         },
@@ -2599,7 +2599,7 @@
           "world_id": "W61",
           "population": 213,
           "distance": 0.7625,
-          "answer": -1,
+          "answer": 0,
           "reasoning": "Survival calculus dominates; most hoard, a few share.",
           "full_response": "Survival calculus dominates; most hoard, a few share.\n\nNO."
         },
@@ -4649,7 +4649,7 @@
           "world_id": "W72",
           "population": 246,
           "distance": 0.9,
-          "answer": -1,
+          "answer": 0,
           "reasoning": "Desperation overrides deliberation when survival is immediate.",
           "full_response": "Desperation overrides deliberation when survival is immediate.\n\nNO."
         },
@@ -6395,7 +6395,7 @@
           "world_id": "W45",
           "population": 165,
           "distance": 0.5625,
-          "answer": -1,
+          "answer": 0,
           "reasoning": "Starvation forces brutal triage; the math doesn't allow 165 to share what feeds 30.",
           "full_response": "Starvation forces brutal triage; the math doesn't allow 165 to share what feeds 30.\n\nNO."
         },
@@ -6595,7 +6595,7 @@
           "world_id": "W70",
           "population": 240,
           "distance": 0.875,
-          "answer": -1,
+          "answer": 0,
           "reasoning": "Starvation math forces ruthless triage.",
           "full_response": "Starvation math forces ruthless triage.\n\nNO."
         },
@@ -6865,7 +6865,7 @@
           "world_id": "W22",
           "population": 96,
           "distance": 0.275,
-          "answer": -1,
+          "answer": 0,
           "reasoning": "Desperation overrides cooperation without established authority.",
           "full_response": "Desperation overrides cooperation without established authority.\n\nNO."
         },
@@ -6873,7 +6873,7 @@
           "world_id": "W23",
           "population": 99,
           "distance": 0.2875,
-          "answer": -1,
+          "answer": 0,
           "reasoning": "Starvation panic overrides coordination; trust circles hoard before consensus forms.",
           "full_response": "Starvation panic overrides coordination; trust circles hoard before consensus forms.\n\nNO."
         },
